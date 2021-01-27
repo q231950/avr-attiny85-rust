@@ -1,0 +1,20 @@
+[package]
+name = "avr-attiny85"
+version = "0.1.0"
+authors = ["Martin Kim Dung-Pham <kim.dung-pham@xing.com>"]
+edition = "2018"
+
+[features] 
+default = ["rt"] 
+rt = ["attiny85-hal/rt"]
+
+[dependencies]
+panic-halt = "0.2.0"
+
+[dependencies.attiny85-hal]
+git = "https://github.com/Rahix/avr-hal"
+rev = "d17a441a667dd65e5a9be75b0e71d1beadf93e84"
+
+[profile.dev]
+panic = "abort"
+lto = true
