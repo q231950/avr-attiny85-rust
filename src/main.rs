@@ -41,23 +41,24 @@ fn main() -> ! {
         }
 
         animation_clock += 1;
-        if animation_clock == 500 {
+        if animation_clock == 230 {
             animation_clock = 0;
         }
     }
 
-    fn enabled(animation_clock: u16) -> bool {
-        match animation_clock % 10 {
-            0 => animation_clock <= 50,
-            1 => animation_clock >= 50 && animation_clock <= 100,
-            2 => animation_clock >= 100 && animation_clock <= 150,
-            3 => animation_clock >= 150 && animation_clock <= 200,
-            4 => animation_clock >= 200 && animation_clock <= 250,
-            5 => animation_clock >= 250 && animation_clock <= 300,
-            6 => animation_clock >= 300 && animation_clock <= 350,
-            7 => animation_clock >= 350 && animation_clock <= 400,
-            8 => animation_clock >= 400 && animation_clock <= 450,
-            9 => animation_clock >= 450 && animation_clock <= 500,
+    fn enabled(clock: u16) -> bool {
+        match clock % 10 {
+            0 => clock <= 25 || clock <= 230 && clock >= 200,
+            1 => clock >= 25 && clock <= 50 || clock <= 200 && clock >= 175,
+            2 => clock >= 50 && clock <= 75 || clock <= 175 && clock >= 150,
+            3 => clock >= 75 && clock <= 100 || clock <= 150 && clock >= 125,
+            4 => clock >= 100 && clock <= 125,
+
+            5 => clock >= 100 && clock <= 125,
+            6 => clock >= 75 && clock <= 100 || clock <= 150 && clock >= 125,
+            7 => clock >= 50 && clock <= 75 || clock <= 175 && clock >= 150,
+            8 => clock >= 25 && clock <= 50 || clock <= 200 && clock >= 175,
+            9 => clock <= 25 || clock <= 230 && clock >= 200,
             _ => false,
         }
     }
