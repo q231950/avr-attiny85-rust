@@ -28,13 +28,3 @@ let mut delay = Delay::<MHz8>::new();
 ## Chip Interrogation
 
 `-U lfuse:r:-:i`
-
-
-
-on      off
-10ms    10ms
-5ms     5ms
-1ms     20ms
-1ms     10ms
-1ms     5ms
-10ms    1ms
