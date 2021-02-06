@@ -18,47 +18,52 @@ fn main() -> ! {
     let mut reset = portb.pb1.into_output(&mut portb.ddr);
     let mut led = portb.pb4.into_output(&mut portb.ddr);
     let mut delay = Delay::<MHz8>::new();
-    let mut animation_clock = 0u16;
+    let mut animation_clock = 25i16;
+    let mut index = 0u8;
     pulse.set_high().void_unwrap();
     reset.set_high().void_unwrap();
     reset.set_low().void_unwrap();
+    let mut direction = 1i16;
 
     loop {
-        if enabled(animation_clock) {
+        if enabled(index, animation_clock) {
             led.set_high().void_unwrap();
         }
 
-        delay.delay_ms(2u8);
+        delay.delay_us(500u16);
 
         led.set_low().void_unwrap();
 
-        if animation_clock % 10 == 9 {
+        index += 1;
+        if index == 10 {
             reset.set_high().void_unwrap();
             reset.set_low().void_unwrap();
+            index = 0;
         } else {
             pulse.set_low().void_unwrap();
             pulse.set_high().void_unwrap();
         }
 
-        animation_clock += 1;
-        if animation_clock == 500 {
-            animation_clock = 0;
+        animation_clock += direction;
+        // The clock goes back and forth in time
+        if animation_clock == 500 || animation_clock == 0 {
+            direction = -direction;
         }
     }
 
-    fn enabled(animation_clock: u16) -> bool {
-        match animation_clock % 10 {
-            0 => animation_clock <= 50,
-            1 => animation_clock >= 50 && animation_clock <= 100,
-            2 => animation_clock >= 100 && animation_clock <= 150,
-            3 => animation_clock >= 150 && animation_clock <= 200,
-            4 => animation_clock >= 200 && animation_clock <= 250,
-            5 => animation_clock >= 250 && animation_clock <= 300,
-            6 => animation_clock >= 300 && animation_clock <= 350,
-            7 => animation_clock >= 350 && animation_clock <= 400,
-            8 => animation_clock >= 400 && animation_clock <= 450,
-            9 => animation_clock >= 450 && animation_clock <= 500,
+    fn enabled(index: u8, clock: i16) -> bool {
+        return match index {
+            0 => clock <= 50,
+            1 => clock >= 50 && clock <= 100,
+            2 => clock >= 100 && clock <= 150,
+            3 => clock >= 150 && clock <= 200,
+            4 => clock >= 200 && clock <= 250,
+            5 => clock >= 250 && clock <= 300,
+            6 => clock >= 300 && clock <= 350,
+            7 => clock >= 350 && clock <= 400,
+            8 => clock >= 400 && clock <= 450,
+            9 => clock >= 450 && clock <= 500,
             _ => false,
-        }
+        };
     }
 }
