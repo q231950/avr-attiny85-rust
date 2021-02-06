@@ -41,23 +41,23 @@ fn main() -> ! {
         }
 
         animation_clock += 1;
-        if animation_clock == 500 {
+        if animation_clock == 410 {
             animation_clock = 0;
         }
     }
 
     fn enabled(animation_clock: u16) -> bool {
         match animation_clock % 10 {
-            0 => animation_clock <= 50,
-            1 => animation_clock >= 50 && animation_clock <= 100,
-            2 => animation_clock >= 100 && animation_clock <= 150,
-            3 => animation_clock >= 150 && animation_clock <= 200,
-            4 => animation_clock >= 200 && animation_clock <= 250,
-            5 => animation_clock >= 250 && animation_clock <= 300,
-            6 => animation_clock >= 300 && animation_clock <= 350,
-            7 => animation_clock >= 350 && animation_clock <= 400,
-            8 => animation_clock >= 400 && animation_clock <= 450,
-            9 => animation_clock >= 450 && animation_clock <= 500,
+            0 => animation_clock <= 10,
+            1 => animation_clock >= 10 && animation_clock <= 25,
+            2 => animation_clock >= 25 && animation_clock <= 40,
+            3 => animation_clock >= 40 && animation_clock <= 100,
+            4 => animation_clock >= 100 && animation_clock <= 156,
+            5 => animation_clock >= 156 && animation_clock <= 225,
+            6 => animation_clock >= 225 && animation_clock <= 325,
+            7 => animation_clock >= 325 && animation_clock <= 385,
+            8 => animation_clock >= 385 && animation_clock <= 400,
+            9 => animation_clock >= 400 && animation_clock <= 410,
             _ => false,
         }
     }
