@@ -26,7 +26,7 @@ fn main() -> ! {
     loop {
         a1.set_high().void_unwrap();
         a2.set_low().void_unwrap();
-        b1.set_low().void_unwrap();
+        b1.set_high().void_unwrap();
         b2.set_low().void_unwrap();
 
         delay.delay_ms(20u8);
@@ -40,8 +40,22 @@ fn main() -> ! {
 
         a1.set_low().void_unwrap();
         a2.set_high().void_unwrap();
+        b1.set_high().void_unwrap();
+        b2.set_low().void_unwrap();
+
+        delay.delay_ms(20u8);
+
+        a1.set_low().void_unwrap();
+        a2.set_high().void_unwrap();
         b1.set_low().void_unwrap();
         b2.set_low().void_unwrap();
+
+        delay.delay_ms(20u8);
+
+        a1.set_low().void_unwrap();
+        a2.set_high().void_unwrap();
+        b1.set_low().void_unwrap();
+        b2.set_high().void_unwrap();
 
         delay.delay_ms(20u8);
 
@@ -49,6 +63,20 @@ fn main() -> ! {
         a2.set_low().void_unwrap();
         b1.set_low().void_unwrap();
         b2.set_high().void_unwrap();
+
+        delay.delay_ms(20u8);
+
+        a1.set_high().void_unwrap();
+        a2.set_low().void_unwrap();
+        b1.set_low().void_unwrap();
+        b2.set_high().void_unwrap();
+
+        delay.delay_ms(20u8);
+
+        a1.set_high().void_unwrap();
+        a2.set_low().void_unwrap();
+        b1.set_low().void_unwrap();
+        b2.set_low().void_unwrap();
 
         delay.delay_ms(20u8);
     }
