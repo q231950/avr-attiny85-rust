@@ -21,7 +21,7 @@ fn main() -> ! {
     let mut a2 = portb.pb1.into_output(&mut portb.ddr);
     let mut b1 = portb.pb2.into_output(&mut portb.ddr);
     let mut b2 = portb.pb3.into_output(&mut portb.ddr);
-    let mut delay = Delay::<MHz1>::new();
+    let mut delay = Delay::<MHz8>::new();
 
     loop {
         a1.set_high().void_unwrap();
@@ -29,55 +29,55 @@ fn main() -> ! {
         b1.set_high().void_unwrap();
         b2.set_low().void_unwrap();
 
-        delay.delay_ms(20u8);
+        delay.delay_ms(5u8);
 
         a1.set_low().void_unwrap();
         a2.set_low().void_unwrap();
         b1.set_high().void_unwrap();
         b2.set_low().void_unwrap();
 
-        delay.delay_ms(20u8);
+        delay.delay_ms(5u8);
 
         a1.set_low().void_unwrap();
         a2.set_high().void_unwrap();
         b1.set_high().void_unwrap();
         b2.set_low().void_unwrap();
 
-        delay.delay_ms(20u8);
+        delay.delay_ms(5u8);
 
         a1.set_low().void_unwrap();
         a2.set_high().void_unwrap();
         b1.set_low().void_unwrap();
         b2.set_low().void_unwrap();
 
-        delay.delay_ms(20u8);
+        delay.delay_ms(5u8);
 
         a1.set_low().void_unwrap();
         a2.set_high().void_unwrap();
         b1.set_low().void_unwrap();
         b2.set_high().void_unwrap();
 
-        delay.delay_ms(20u8);
+        delay.delay_ms(5u8);
 
         a1.set_low().void_unwrap();
         a2.set_low().void_unwrap();
         b1.set_low().void_unwrap();
         b2.set_high().void_unwrap();
 
-        delay.delay_ms(20u8);
+        delay.delay_ms(5u8);
 
         a1.set_high().void_unwrap();
         a2.set_low().void_unwrap();
         b1.set_low().void_unwrap();
         b2.set_high().void_unwrap();
 
-        delay.delay_ms(20u8);
+        delay.delay_ms(5u8);
 
         a1.set_high().void_unwrap();
         a2.set_low().void_unwrap();
         b1.set_low().void_unwrap();
         b2.set_low().void_unwrap();
 
-        delay.delay_ms(20u8);
+        delay.delay_ms(5u8);
     }
 }
