@@ -1,3 +1,5 @@
+// This Example works with L293D
+
 #![no_std]
 #![no_main]
 
